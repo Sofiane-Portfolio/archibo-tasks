@@ -1,25 +1,51 @@
 {
   "expo": {
-    "name": "archibo-tasks",
+    "name": "Archibo Tasks",
     "slug": "archibo-tasks",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "scheme": "archibo",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "tn.archibo.tasks",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Archibo Tasks utilise la caméra pour photographier les chantiers.",
+        "NSPhotoLibraryUsageDescription": "Archibo Tasks accède à la galerie pour les photos de chantiers."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#09090B"
       },
-      "predictiveBackGestureEnabled": false
+      "package": "tn.archibo.tasks",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Archibo Tasks utilise la caméra pour photographier les chantiers.",
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Archibo Tasks accède à la galerie pour les photos de chantiers."
+        }
+      ],
+      "expo-splash-screen",
+      "expo-font"
+    ]
   }
 }
